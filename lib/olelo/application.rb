@@ -74,7 +74,7 @@ module Olelo
     end
 
     error StandardError do |error|
-      Olelo.logger.error error
+      Olelo.logger.error(error)
       if on_error && http_accept? /html/
         (error.try(:messages) || [error.message]).each {|msg| flash.error!(msg) }
         halt render(on_error)
